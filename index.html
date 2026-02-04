@@ -6,15 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f4f1ec;          /* warm cream */
-      --panel-blue: #cfdcf2;  /* light blue from slides */
-      --text-main: #4b3b33;   /* brownish serif text */
+      --bg-page: #f4f1ec;      /* warm cream */
+      --panel-blue: #cfdcf2;   /* light blue from slides */
+      --text-main: #4b3b33;    /* brown serif text */
       --muted: #7a6a60;
       --line: #d6ccc2;
-      --circle-border: #b3c7ea;
-      --shadow-soft: 0 12px 26px rgba(0,0,0,0.06);
-      --radius-lg: 20px;
-      --radius-md: 14px;
+      --shadow-soft: 0 10px 24px rgba(0,0,0,0.06);
+      --radius-lg: 22px;
+      --radius-md: 16px;
     }
 
     * {
@@ -25,13 +24,13 @@
 
     body {
       font-family: "Georgia", "Times New Roman", serif;
-      background: var(--bg);
+      background: var(--bg-page);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 32px 20px 56px;
     }
@@ -39,19 +38,19 @@
     /* HERO */
 
     .hero {
-      background: #cfdcf2;
+      background: var(--panel-blue);
       border-radius: var(--radius-lg);
-      padding: 40px 32px;
-      box-shadow: var(--shadow-soft);
+      padding: 44px 40px;
       margin-bottom: 40px;
+      box-shadow: var(--shadow-soft);
     }
 
     .hero-text {
-      font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+      font-size: clamp(1.9rem, 3vw, 2.3rem);
       line-height: 1.25;
     }
 
-    /* SECTION TITLES */
+    /* SECTIONS */
 
     section {
       margin-bottom: 44px;
@@ -67,12 +66,12 @@
     }
 
     .section-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       font-style: italic;
       color: var(--muted);
     }
 
-    /* SUPPORTING YOUR ENTRY SECTION */
+    /* SUPPORTING YOUR ENTRY */
 
     .supporting-grid {
       display: grid;
@@ -88,116 +87,60 @@
     .supporting-left ul {
       list-style: disc;
       margin-left: 18px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .supporting-left li {
       margin-bottom: 10px;
     }
 
-    .supporting-left .ancillary {
-      margin-top: 8px;
-      font-size: 1.05rem;
+    .ancillary-wrapper {
       text-align: center;
+      margin-top: 8px;
     }
 
-    .supporting-left .ancillary-line {
+    .ancillary-line {
       border-top: 1px solid var(--line);
-      margin: 18px auto 10px;
+      margin: 0 auto 10px;
       width: 70%;
     }
 
-    /* CIRCLE DIAGRAM APPROXIMATION */
-
-    .circle-diagram-wrapper {
-      display: flex;
-      justify-content: center;
+    .ancillary-text {
+      font-size: 1.02rem;
     }
 
-    .circle-diagram {
-      position: relative;
-      width: 290px;
-      height: 290px;
+    /* SIMPLE “CIRCLE” LIST */
+
+    .circle-panel {
+      background: #fffdf9;
+      border-radius: var(--radius-lg);
+      padding: 20px 22px 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--line);
     }
 
-    .circle-diagram-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 140px;
-      height: 140px;
-      margin-top: -70px;
-      margin-left: -70px;
-      border-radius: 50%;
-      border: 1px solid var(--circle-border);
-      background: #e3ecfb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .circle-panel-title {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
       text-align: center;
-      font-size: 0.9rem;
-      padding: 0 16px;
     }
 
-    .circle-diagram-main span {
-      display: block;
+    .circle-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    .circle-small {
-      position: absolute;
-      width: 110px;
+    .circle-badge {
       height: 110px;
       border-radius: 50%;
-      border: 1px solid var(--circle-border);
-      background: #e3ecfb;
+      background: var(--panel-blue);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 0.82rem;
-      padding: 0 12px;
-    }
-
-    .circle-small span {
-      display: block;
-    }
-
-    .circle-top {
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .circle-right {
-      top: 50%;
-      right: -5px;
-      transform: translateY(-50%);
-    }
-    .circle-bottom {
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .circle-left {
-      top: 50%;
-      left: -5px;
-      transform: translateY(-50%);
-    }
-    .circle-diag-top-left {
-      top: 34px;
-      left: 34px;
-    }
-    .circle-diag-bottom-right {
-      bottom: 34px;
-      right: 34px;
-    }
-
-    .circle-centre-label {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, 115%);
-      font-size: 0.85rem;
-      text-align: center;
+      padding: 0 14px;
+      font-size: 0.86rem;
     }
 
     /* VALUE CARDS */
@@ -209,20 +152,20 @@
     }
 
     .value-card {
-      background: #cfdcf2;
+      background: var(--panel-blue);
       border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 22px;
       text-align: center;
+      box-shadow: var(--shadow-soft);
     }
 
     .value-title {
       font-size: 1.2rem;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     .value-text {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       color: var(--muted);
     }
 
@@ -242,7 +185,7 @@
     }
 
     .team-number {
-      font-size: 1.15rem;
+      font-size: 1.16rem;
       color: #8ea6d4;
     }
 
@@ -257,14 +200,14 @@
         grid-template-columns: minmax(0, 1fr);
       }
 
-      .circle-diagram-wrapper {
-        margin-top: 8px;
+      .circle-list {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     @media (max-width: 640px) {
       .hero {
-        padding: 28px 22px;
+        padding: 32px 26px;
       }
 
       .value-grid {
@@ -292,6 +235,7 @@
       </div>
 
       <div class="supporting-grid">
+        <!-- Left: bullet list -->
         <div class="supporting-left">
           <ul>
             <li>
@@ -317,50 +261,35 @@
             </li>
           </ul>
 
-          <div class="ancillary">
+          <div class="ancillary-wrapper">
             <div class="ancillary-line"></div>
-            Ancillary services –<br />
-            launch and governance advisory
+            <div class="ancillary-text">
+              Ancillary services –<br />
+              launch and governance advisory
+            </div>
           </div>
         </div>
 
-        <div class="circle-diagram-wrapper">
-          <div class="circle-diagram" aria-hidden="true">
-            <div class="circle-diagram-main">
-              <span>Investment</span>
-              <span>structure</span>
-              <span>architecture</span>
+        <!-- Right: simplified circle list -->
+        <div class="circle-panel">
+          <div class="circle-panel-title">
+            Investment structure architecture
+          </div>
+          <div class="circle-list">
+            <div class="circle-badge">
+              Governance model setup
             </div>
-
-            <div class="circle-small circle-top">
-              <span>Implementation</span>
-              <span>and stakeholder</span>
-              <span>coordination</span>
+            <div class="circle-badge">
+              Implementation and stakeholder coordination
             </div>
-
-            <div class="circle-small circle-right">
-              <span>Service provider</span>
-              <span>sourcing</span>
+            <div class="circle-badge">
+              Service provider sourcing
             </div>
-
-            <div class="circle-small circle-bottom">
-              <span>Ongoing</span>
-              <span>project</span>
-              <span>oversight</span>
+            <div class="circle-badge">
+              Ongoing project oversight
             </div>
-
-            <div class="circle-small circle-left">
-              <span>Reporting</span>
-            </div>
-
-            <div class="circle-small circle-diag-top-left">
-              <span>Governance</span>
-              <span>model setup</span>
-            </div>
-
-            <div class="circle-small circle-diag-bottom-right">
-              <span>Governance</span>
-              <span>model setup</span>
+            <div class="circle-badge">
+              Reporting
             </div>
           </div>
         </div>
