@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your bridge to Luxembourg’s investment ecosystem</title>
+  <title>LuxEntry – Luxembourg investment ecosystem advisory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     :root {
-      --bg: #f3f4f6;
+      --bg-page: #f5f7fb;
       --card: #ffffff;
-      --accent: #0f766e;
-      --accent-soft: #e0f2f1;
-      --text-main: #111827;
-      --text-muted: #6b7280;
+      --primary: #11408f;      /* LuxEntry / LinkedIn blue */
+      --primary-soft: #e7effc;
+      --text-main: #0f172a;
+      --text-muted: #475569;
       --border: #e5e7eb;
       --radius-lg: 18px;
       --radius-md: 14px;
-      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 14px 28px rgba(15, 23, 42, 0.10);
     }
 
     * {
@@ -26,8 +27,8 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #eef2ff 0, #f3f4f6 45%, #f3f4f6 100%);
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -38,9 +39,9 @@
       padding: 28px 20px 56px;
     }
 
-    /* HEADER / LOGO PLACEHOLDER */
+    /* HEADER */
 
-    .header {
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -50,30 +51,40 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .brand-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: var(--accent);
-      font-size: 16px;
+    .brand img {
+      height: 42px;
+      width: auto;
+    }
+
+    .brand-text {
+      line-height: 1.2;
     }
 
     .brand-name {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
     }
 
-    .brand-tagline {
+    .brand-sub {
       font-size: 12px;
       color: var(--text-muted);
+    }
+
+    .header-link a {
+      font-size: 13px;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 64, 143, 0.18);
+      background: #ffffff;
+    }
+
+    .header-link a:hover {
+      background: var(--primary-soft);
     }
 
     /* HERO */
@@ -81,38 +92,28 @@
     .hero {
       background: var(--card);
       border-radius: var(--radius-lg);
-      padding: 28px 26px 24px;
+      padding: 32px;
       box-shadow: var(--shadow-soft);
       border: 1px solid var(--border);
-      margin-bottom: 30px;
+      margin-bottom: 36px;
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.2fr);
-      gap: 26px;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 28px;
       align-items: center;
     }
 
-    .hero-main {
-      max-width: 520px;
-    }
-
-    .hero-kicker {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 3vw, 2.6rem);
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
       line-height: 1.15;
       font-weight: 650;
       margin-bottom: 12px;
+      color: var(--primary);
     }
 
-    .hero-sub {
-      font-size: 14px;
+    .hero p {
+      font-size: 15px;
       color: var(--text-muted);
+      max-width: 520px;
     }
 
     .hero-badges {
@@ -122,35 +123,32 @@
       font-size: 12px;
     }
 
-    .hero-badge {
+    .badge {
+      padding: 7px 12px;
       border-radius: 999px;
-      padding: 7px 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(17, 64, 143, 0.15);
       text-align: center;
-      border: 1px solid rgba(16, 185, 129, 0.15);
     }
 
     /* SECTIONS */
 
     section {
-      margin-bottom: 34px;
-    }
-
-    .section-header {
-      margin-bottom: 16px;
+      margin-bottom: 38px;
     }
 
     .section-title {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
+    .section-sub {
+      font-size: 14px;
       font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
 
     /* SUPPORTING SECTION */
@@ -159,71 +157,58 @@
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 2fr);
       gap: 22px;
-      align-items: flex-start;
     }
 
-    .supporting-card {
+    .card {
       background: var(--card);
       border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
+      padding: 20px;
       border: 1px solid var(--border);
       box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
       font-size: 14px;
     }
 
-    .supporting-card ul {
+    .card ul {
       list-style: none;
-      padding-left: 0;
     }
 
-    .supporting-card li {
+    .card li {
       display: flex;
-      align-items: flex-start;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--text-muted);
     }
 
-    .supporting-card li::before {
+    .card li::before {
       content: "•";
-      color: var(--accent);
+      color: var(--primary);
       font-size: 18px;
       line-height: 1;
-      margin-top: 1px;
-    }
-
-    .ancillary {
-      border-top: 1px solid var(--border);
-      margin-top: 18px;
-      padding-top: 10px;
-      font-size: 13px;
-      text-align: center;
-      color: var(--text-main);
     }
 
     .architecture-title {
-      font-size: 14px;
       font-weight: 600;
+      color: var(--primary);
       margin-bottom: 10px;
-      color: var(--accent);
+      font-size: 14px;
     }
 
-    .chip-list {
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
     .chip {
-      padding: 6px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: #f9fafb;
+      background: #f8fafc;
       border: 1px solid var(--border);
       font-size: 12px;
       color: var(--text-muted);
     }
 
-    /* VALUE CARDS */
+    /* VALUE GRID */
 
     .value-grid {
       display: grid;
@@ -231,12 +216,11 @@
       gap: 16px;
     }
 
-    .value-card {
+    .value {
       background: var(--card);
       border-radius: var(--radius-md);
-      padding: 16px 14px 18px;
+      padding: 18px 16px;
       border: 1px solid var(--border);
-      text-align: left;
       box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
       font-size: 13px;
     }
@@ -250,12 +234,12 @@
       color: var(--text-muted);
     }
 
-    /* TEAM STRENGTHS */
+    /* TEAM */
 
-    .team-card {
+    .team {
       background: var(--card);
       border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
+      padding: 22px;
       border: 1px solid var(--border);
       box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
       font-size: 14px;
@@ -265,13 +249,12 @@
       display: grid;
       grid-template-columns: 24px minmax(0, 1fr);
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .team-number {
-      font-size: 14px;
+    .team-num {
       font-weight: 600;
-      color: var(--accent);
+      color: var(--text-main);
     }
 
     .team-text {
@@ -283,20 +266,10 @@
       font-weight: 600;
     }
 
-    /* FOOTER */
-
-    footer {
-      margin-top: 26px;
-      font-size: 11px;
-      color: var(--text-muted);
-      text-align: right;
-    }
+    /* RESPONSIVE */
 
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
+      .hero,
       .supporting-grid {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -307,70 +280,58 @@
     }
 
     @media (max-width: 640px) {
-      .page {
-        padding-top: 20px;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-
-      .hero {
-        padding: 22px 18px;
-      }
-
       .value-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <!-- Simple header -->
-    <header class="header">
+
+    <!-- HEADER -->
+    <header>
       <div class="brand">
-        <div class="brand-mark">Lx</div>
-        <div>
-          <div class="brand-name">Welcome to Lux</div>
-          <div class="brand-tagline">Luxembourg structuring &amp; governance support</div>
+        <img src="luxentry-logo.png" alt="LuxEntry logo" />
+        <div class="brand-text">
+          <div class="brand-name">LuxEntry</div>
+          <div class="brand-sub">
+            Luxembourg structuring and governance support
+          </div>
         </div>
+      </div>
+      <div class="header-link">
+        <a href="https://www.linkedin.com/company/luxentry" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
       </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-main">
-        <div class="hero-kicker">Luxembourg · alternative investment structures</div>
-        <h1 class="hero-title">
-          Your bridge to<br />
-          Luxembourg’s investment ecosystem
-        </h1>
-        <p class="hero-sub">
-          Supporting sponsors and investors with structuring, governance and project
-          management across Luxembourg-based fund and investment platforms.
+      <div>
+        <h1>Your bridge to Luxembourg’s investment ecosystem</h1>
+        <p>
+          Independent advisory for entering Luxembourg’s investment ecosystem.
         </p>
       </div>
+
       <div class="hero-badges">
-        <div class="hero-badge">Time efficiency · single Lux coordination point</div>
-        <div class="hero-badge">Cost savings · optimised provider network</div>
-        <div class="hero-badge">Streamlined execution · fewer delays, fewer errors</div>
-        <div class="hero-badge">Governance &amp; compliance · clarity for investors</div>
+        <div class="badge">Time efficiency · single Luxembourg coordination point</div>
+        <div class="badge">Cost savings · optimised provider network</div>
+        <div class="badge">Streamlined execution · fewer delays, fewer errors</div>
+        <div class="badge">Governance and compliance · clarity for investors</div>
       </div>
     </section>
 
-    <!-- SUPPORTING YOUR ENTRY -->
+    <!-- SUPPORTING -->
     <section>
-      <div class="section-header">
-        <h2 class="section-title">Supporting your entry into</h2>
-        <div class="section-subtitle">Europe’s leading fund jurisdiction</div>
-      </div>
+      <div class="section-title">Supporting your entry into</div>
+      <div class="section-sub">Europe’s leading fund jurisdiction</div>
 
       <div class="supporting-grid">
-        <!-- Left: bullets -->
-        <div class="supporting-card">
+        <div class="card">
           <ul>
             <li>
               Introduction and sourcing of third-party providers, including RFP
@@ -394,18 +355,11 @@
               management.
             </li>
           </ul>
-          <div class="ancillary">
-            Ancillary services – launch and governance advisory
-          </div>
         </div>
 
-        <!-- Right: architecture chips -->
-        <div class="supporting-card">
+        <div class="card">
           <div class="architecture-title">Investment structure architecture</div>
-          <p class="section-subtitle" style="font-style: normal; margin-bottom: 10px;">
-            Selected focus areas:
-          </p>
-          <div class="chip-list">
+          <div class="chips">
             <div class="chip">Governance model setup</div>
             <div class="chip">Implementation and stakeholder coordination</div>
             <div class="chip">Service provider sourcing</div>
@@ -416,36 +370,33 @@
       </div>
     </section>
 
-    <!-- VALUE CARDS -->
+    <!-- VALUE -->
     <section>
-      <div class="section-header">
-        <h2 class="section-title">Why clients work with us</h2>
-      </div>
+      <div class="section-title">Why clients work with us</div>
 
       <div class="value-grid">
-        <div class="value-card">
+        <div class="value">
           <div class="value-title">Time efficiency</div>
           <div class="value-text">
-            ~30% faster setup through a single Luxembourg coordination point.
+            Approximately thirty percent faster setup through a single Luxembourg coordination point.
           </div>
         </div>
 
-        <div class="value-card">
+        <div class="value">
           <div class="value-title">Cost savings</div>
           <div class="value-text">
-            ~25–30% lower total costs via optimised provider network and project
-            oversight.
+            Approximately twenty five to thirty percent lower total costs via an optimised provider network and project oversight.
           </div>
         </div>
 
-        <div class="value-card">
+        <div class="value">
           <div class="value-title">Streamlined execution</div>
           <div class="value-text">
-            Lux project lead – fewer delays, fewer errors, seamless delivery.
+            Luxembourg project lead with fewer delays, fewer errors, and seamless delivery.
           </div>
         </div>
 
-        <div class="value-card">
+        <div class="value">
           <div class="value-title">Governance and compliance</div>
           <div class="value-text">
             Robust governance delivering clarity and control for investors.
@@ -454,68 +405,55 @@
       </div>
     </section>
 
-    <!-- TEAM STRENGTHS -->
+    <!-- TEAM -->
     <section>
-      <div class="section-header">
-        <h2 class="section-title">Key strengths of our team</h2>
-      </div>
+      <div class="section-title">Key strengths of our team</div>
 
-      <div class="team-card">
+      <div class="team">
         <div class="team-item">
-          <div class="team-number">1</div>
+          <div class="team-num">1</div>
           <div class="team-text">
-            <strong>Proven track record and experience</strong> across a wide
-            range of alternative investment structures in Luxembourg and abroad.
+            <strong>Proven track record and experience</strong> across a wide range of alternative investment structures in Luxembourg and abroad.
           </div>
         </div>
 
         <div class="team-item">
-          <div class="team-number">2</div>
+          <div class="team-num">2</div>
           <div class="team-text">
-            <strong>Team of senior professionals</strong> ensuring direct access to
-            expertise and in-depth know-how.
+            <strong>Team of senior professionals</strong> ensuring direct access to expertise and in depth know how.
           </div>
         </div>
 
         <div class="team-item">
-          <div class="team-number">3</div>
+          <div class="team-num">3</div>
           <div class="team-text">
-            <strong>Well-balanced and multidisciplinary team</strong> with solid
-            experience in M&amp;A and deal structuring, fund and SPV administration,
-            fund management, risk management, and compliance.
+            <strong>Well balanced and multidisciplinary team</strong> with solid experience in mergers and acquisitions and deal structuring, fund and SPV administration, fund management, risk management, and compliance.
           </div>
         </div>
 
         <div class="team-item">
-          <div class="team-number">4</div>
+          <div class="team-num">4</div>
           <div class="team-text">
-            <strong>Ability to accommodate all types of structures</strong> and
-            manage any form of alternative investment fund.
+            <strong>Ability to accommodate all types of structures</strong> and manage any form of alternative investment fund.
           </div>
         </div>
 
         <div class="team-item">
-          <div class="team-number">5</div>
+          <div class="team-num">5</div>
           <div class="team-text">
-            <strong>Hands-on project management experience</strong> – we align
-            interests among investors and service providers, and drive transactions
-            efficiently from structuring to completion.
+            <strong>Hands on project management experience</strong> aligning interests among investors and service providers and driving transactions efficiently from structuring to completion.
           </div>
         </div>
 
         <div class="team-item">
-          <div class="team-number">6</div>
+          <div class="team-num">6</div>
           <div class="team-text">
-            <strong>Established infrastructure and network of partners</strong>
-            enabling a swift and streamlined project delivery process.
+            <strong>Established infrastructure and network of partners</strong> enabling a swift and streamlined project delivery process.
           </div>
         </div>
       </div>
     </section>
 
-    <footer>
-      High-level overview only – does not constitute legal, tax or investment advice.
-    </footer>
   </div>
 </body>
 </html>
